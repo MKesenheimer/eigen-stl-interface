@@ -189,6 +189,22 @@ namespace math {
     }
 
     /// <summary>
+    /// vector-vector addition (with eigen::Map)
+    /// </summary>
+    template <class _T>
+    inline vector<_T> operator+(const typename vector<_T>::map_type& lhs, const vector<_T>& rhs) {
+        return vector<_T>(lhs + rhs.eigen());
+    }
+
+    /// <summary>
+    /// vector-vector addition (with eigen::Map)
+    /// </summary>
+    template <class _T>
+    inline vector<_T> operator+(const vector<_T>& lhs, const typename vector<_T>::map_type& rhs) {
+        return vector<_T>(lhs.eigen() + rhs);
+    }
+
+    /// <summary>
     /// vector-vector addition
     /// </summary>
     template <class _T>
