@@ -54,6 +54,9 @@ namespace math {
         matrix(size_type r, size_type c)
             : m_eigen(eigen_type::Zero(r, c)), m_refCount(1), m_reserved_memory_left(0) {}
 
+        matrix(size_type r, size_type c)
+            : m_eigen(eigen_type::Zero(r, c)), m_refCount(1), m_reserved_memory_left(0) {}
+
         /// <summary>
         /// construct a dynamic-size matrix with number of rows 'rows' and default column vectors 'vector'
         /// </summary>
