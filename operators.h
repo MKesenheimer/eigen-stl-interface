@@ -127,11 +127,19 @@ namespace math {
     }
 
     /// <summary>
-    /// vector-vector multiplication
+    /// vector-vector multiplication (with eigen:Map)
     /// </summary>
     template <class _T>
     inline _T operator*(const typename vector<_T>::map_type& vecT, const vector<_T>& vec) {
         return static_cast<_T>(vecT.transpose() * vec.eigen());
+    }
+
+    /// <summary>
+    /// vector-vector multiplication (with eigen:Map)
+    /// </summary>
+    template <class _T>
+    inline _T operator*(const vector<_T>& vecT, const typename vector<_T>::map_type& vec) {
+        return static_cast<_T>(vecT.eigen().transpose() * vec);
     }
 
     namespace eigen {
@@ -141,6 +149,24 @@ namespace math {
         template <class _T>
         inline vector<_T> cprod(const vector<_T>& vec1, const vector<_T>& vec2) {
             return vector<_T>(vec1.eigen().cwiseProduct(vec2.eigen()));
+            //return vector<_T>(vec1.eigen().array() * vec2.eigen().array());
+        }
+
+        /// <summary>
+        /// coefficient-wise vector multiplication: a[i] * b[i] = c[i] (with eigen::Map)
+        /// </summary>
+        template <class _T>
+        inline vector<_T> cprod(const typename vector<_T>::map_type& vec1, const vector<_T>& vec2) {
+            return vector<_T>(vec1.cwiseProduct(vec2.eigen()));
+            //return vector<_T>(vec1.eigen().array() * vec2.eigen().array());
+        }
+
+        /// <summary>
+        /// coefficient-wise vector multiplication: a[i] * b[i] = c[i] (with eigen::Map)
+        /// </summary>
+        template <class _T>
+        inline vector<_T> cprod(const vector<_T>& vec1, const typename vector<_T>::map_type& vec2) {
+            return vector<_T>(vec1.eigen().cwiseProduct(vec2));
             //return vector<_T>(vec1.eigen().array() * vec2.eigen().array());
         }
 
