@@ -31,7 +31,7 @@ namespace math {
         /// </summary>
         using eigen_type = Eigen::Matrix<_T, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>;
         using vector_type = Eigen::Matrix<_T, Eigen::Dynamic, 1>;
-        //using map_type = Eigen::Map<eigen_type>;
+        using map_type = Eigen::Map<eigen_type>;
         using vector_map_type = Eigen::Map<vector_type>;
         using value_type = typename eigen_type::value_type;
         using size_type = size_t;
