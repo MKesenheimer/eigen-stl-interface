@@ -130,7 +130,7 @@ namespace math {
     /// vector-vector multiplication
     /// </summary>
     template <class _T>
-    inline _T operator*(const vector<_T>::map_type& vecT, const vector<_T>& vec) {
+    inline _T operator*(const typename vector<_T>::map_type& vecT, const vector<_T>& vec) {
         return static_cast<_T>(vecT.transpose() * vec.eigen());
     }
 
