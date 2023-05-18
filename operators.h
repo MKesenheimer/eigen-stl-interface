@@ -252,7 +252,7 @@ namespace math {
     /// vector-vector subtraction (with eigen::Map)
     /// </summary>
     template <class _T>
-    inline typename vector<_T>::eigen_type operator-(const typedef vector<_T>::map_type& lhs, const vector<_T>& rhs) {
+    inline typename vector<_T>::eigen_type operator-(const typename vector<_T>::map_type& lhs, const vector<_T>& rhs) {
         return lhs - rhs.eigen();
     }
 
@@ -260,7 +260,7 @@ namespace math {
     /// vector-vector subtraction (with eigen::Map)
     /// </summary>
     template <class _T>
-    inline typename vector<_T>::eigen_type operator-(const vector<_T>& lhs, const typedef vector<_T>::map_type& rhs) {
+    inline typename vector<_T>::eigen_type operator-(const vector<_T>& lhs, const typename vector<_T>::map_type& rhs) {
         return lhs.eigen() - rhs;
     }
 
