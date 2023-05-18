@@ -281,6 +281,22 @@ namespace math {
     }
 
     /// <summary>
+    /// matrix-vector multiplication (with eigen::Map)
+    /// </summary>
+    template <class _T>
+    inline typename vector<_T>::eigen_type operator*(const typename matrix<_T>::map_type& mat, const vector<_T>& vec) {
+        return mat * vec.eigen();
+    }
+
+    /// <summary>
+    /// matrix-vector multiplication (with eigen::Map)
+    /// </summary>
+    template <class _T>
+    inline typename vector<_T>::eigen_type operator*(const matrix<_T>& mat, const typename vector<_T>::map_type& vec) {
+        return mat.eigen() * vec;
+    }
+
+    /// <summary>
     /// vector-matrix multiplication
     /// </summary>
     template <class _T>
