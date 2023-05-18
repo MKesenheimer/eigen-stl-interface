@@ -100,6 +100,12 @@ namespace math {
             :  m_eigen(eigvec), m_refCount(1), m_reserved_memory_left(0) {}
 
         /// <summary>
+        /// construct from Eigen::matrix
+        /// </summary>
+        vector(eigen_type&& eigvec) noexcept
+            :  m_eigen(std::move(eigvec)), m_refCount(1), m_reserved_memory_left(0) {}
+
+        /// <summary>
         /// copy constructor
         /// </summary>
         vector(const vector& other)

@@ -149,7 +149,6 @@ namespace math {
         template <class _T>
         inline vector<_T> cprod(const vector<_T>& vec1, const vector<_T>& vec2) {
             return vector<_T>(vec1.eigen().cwiseProduct(vec2.eigen()));
-            //return vector<_T>(vec1.eigen().array() * vec2.eigen().array());
         }
 
         /// <summary>
@@ -158,7 +157,6 @@ namespace math {
         template <class _T>
         inline vector<_T> cprod(const typename vector<_T>::map_type& vec1, const vector<_T>& vec2) {
             return vector<_T>(vec1.cwiseProduct(vec2.eigen()));
-            //return vector<_T>(vec1.eigen().array() * vec2.eigen().array());
         }
 
         /// <summary>
@@ -167,7 +165,6 @@ namespace math {
         template <class _T>
         inline vector<_T> cprod(const vector<_T>& vec1, const typename vector<_T>::map_type& vec2) {
             return vector<_T>(vec1.eigen().cwiseProduct(vec2));
-            //return vector<_T>(vec1.eigen().array() * vec2.eigen().array());
         }
 
         /// <summary>
@@ -176,7 +173,6 @@ namespace math {
         template <class _T>
         inline vector<_T> cdiv(const vector<_T>& vec1, const vector<_T>& vec2) {
             return vector<_T>(vec1.eigen().cwiseQuotient(vec2.eigen()));
-            //return vector<_T>(vec1.eigen().array() * vec2.eigen().array());
         }
     }
 
