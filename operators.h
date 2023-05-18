@@ -249,6 +249,22 @@ namespace math {
     }
 
     /// <summary>
+    /// vector-vector subtraction (with eigen::Map)
+    /// </summary>
+    template <class _T>
+    inline typename vector<_T>::eigen_type operator-(const typedef vector<_T>::map_type& lhs, const vector<_T>& rhs) {
+        return lhs - rhs.eigen();
+    }
+
+    /// <summary>
+    /// vector-vector subtraction (with eigen::Map)
+    /// </summary>
+    template <class _T>
+    inline typename vector<_T>::eigen_type operator-(const vector<_T>& lhs, const typedef vector<_T>& rhs) {
+        return lhs.eigen() - rhs;
+    }
+
+    /// <summary>
     /// matrix-scalar multiplication
     /// </summary>
     template <class _T>
