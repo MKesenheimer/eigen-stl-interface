@@ -8,6 +8,7 @@
 #include "vector.h"
 #include "matrix.h"
 #include <iostream>
+#include <functional>
 
 namespace math {
     /// <summary>
@@ -174,6 +175,14 @@ namespace math {
         inline vector<_T> cdiv(const vector<_T>& vec1, const vector<_T>& vec2) {
             return vector<_T>(vec1.eigen().cwiseQuotient(vec2.eigen()));
         }
+
+        /// <summary>
+        /// applying unary operation
+        /// </summary>
+        template <class _T, typename _Func>
+        inline vector<_T> unary(const vector<_T>& vec1, const _Func& func) {
+            return vector<_T>(vec1.eigen().unaryExpr(func));
+        }
     }
 
     /// <summary>
@@ -338,5 +347,5 @@ namespace math {
     template <class _T>
     inline typename matrix<_T>::eigen_type operator-(const matrix<_T>& lhs, const matrix<_T>& rhs) {
         return lhs.eigen() - rhs.eigen();
-    }
+    }   
 }
